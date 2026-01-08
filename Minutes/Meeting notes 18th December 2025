@@ -1,0 +1,20 @@
+Meeting notes: 18/12/25
+
+Each panel on the homepage should describe: Image, Country and City, Date, Genre.
+
+The background colour of the app/website should be accessible for all users. 
+We cannot use a gradient because of the image carousel.
+
+The project plan has been reviewed and accepted by the client.
+
+The homepage design has been consolidated and reviewed with the client.
+
+We need to be mindful of image and video copyrights to be in compliance with the law.
+
+The client has and will provide us with images to be used on the homepage of the website.
+
+The next stage of the project is to begin coding development using React.
+
+For the interim assessment in January we do not need to have an image carousel. The client has indicated that one main image will be needed at this stage.
+
+One hundred festivals with be provided by the client and these will be included in the prototype. Using this data we will be able to prove that the search functionalities are working.
