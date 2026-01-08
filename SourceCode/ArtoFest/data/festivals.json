@@ -1,0 +1,787 @@
+[
+  {
+    "COUNTRY": "Albania",
+    "NAME": "Tirana International Film Festival (TIFF)",
+    "PLACE": "Tirana",
+    "TIME": "21 - 27 Sep",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://tiranafilmfest.org/"
+  },
+  {
+    "COUNTRY": "Albania",
+    "NAME": "Explorations Festival",
+    "PLACE": "Durres",
+    "TIME": "11-16 Jun",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.musicfestivalwizard.com/"
+  },
+  {
+    "COUNTRY": "Andorra",
+    "NAME": "Andorra Sax Fest ",
+    "PLACE": "Andorra la Vella",
+    "TIME": "28 Mar - 4 Apr",
+    "ART/GENRE": "Music",
+    "WEB": "www.andorrasaxfest.com"
+  },
+  {
+    "COUNTRY": "Andorra",
+    "NAME": "Ull-Nu",
+    "PLACE": "Andorra la Vella",
+    "TIME": "20 - 24 May",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.festivalullnu.com/"
+  },
+  {
+    "COUNTRY": "Armenia",
+    "NAME": "Golden Apricot",
+    "PLACE": "Yerevan",
+    "TIME": "12 - 19 Jul",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.gaiff.am/"
+  },
+  {
+    "COUNTRY": "Armenia",
+    "NAME": "Yerevan Music Week",
+    "PLACE": "Yerevan",
+    "TIME": "21 - 27 Sep",
+    "ART/GENRE": "Music",
+    "WEB": "https://philharmonia.am/"
+  },
+  {
+    "COUNTRY": "Austria",
+    "NAME": "Ars Electronica",
+    "PLACE": "Linz",
+    "TIME": "9 - 13 Sep",
+    "ART/GENRE": "Visual Arts",
+    "WEB": "https://ars.electronica.art/"
+  },
+  {
+    "COUNTRY": "Austria",
+    "NAME": "Bregenz Festival",
+    "PLACE": "Bregenz",
+    "TIME": "22 Jul - 23 Aug",
+    "ART/GENRE": "Music",
+    "WEB": "https://bregenzerfestspiele.com/"
+  },
+  {
+    "COUNTRY": "Azerbaijan",
+    "NAME": "Baku International Tourism Film Festival",
+    "PLACE": "Baku",
+    "TIME": "ETA November",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.cifft.com/"
+  },
+  {
+    "COUNTRY": "Azerbaijan",
+    "NAME": "Baku International Jazz Festival",
+    "PLACE": "Baku",
+    "TIME": "ETA Oct",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.bakujazzfestival.com/"
+  },
+  {
+    "COUNTRY": "Belarus",
+    "NAME": "International Festival of Old and Modern Chamber Music",
+    "PLACE": "Polotsk",
+    "TIME": "ETA Nov ",
+    "ART/GENRE": "Music",
+    "WEB": "http://sophia.polotsk.museum.by/"
+  },
+  {
+    "COUNTRY": "Belarus",
+    "NAME": "Teatralny Kufar International Student and Youth Theatre Festival",
+    "PLACE": "Minsk",
+    "TIME": "ETA Dec",
+    "ART/GENRE": "Theatre",
+    "WEB": "http://tkufar.by/"
+  },
+  {
+    "COUNTRY": "Belgium",
+    "NAME": "Theater Aan Zee (TAZ)",
+    "PLACE": "Ostend",
+    "TIME": "29 Jul - 8 Aug",
+    "ART/GENRE": "Multidisciplinary",
+    "WEB": "https://www.theateraanzee.be/"
+  },
+  {
+    "COUNTRY": "Belgium",
+    "NAME": "Crammerock",
+    "PLACE": "Stekene",
+    "TIME": "ETA Sep",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.crammerock.be/"
+  },
+  {
+    "COUNTRY": "Bosnia & Herzegovina",
+    "NAME": "Festival of bosnian drama and author's theatre",
+    "PLACE": "Zenica",
+    "TIME": "ETA May",
+    "ART/GENRE": "Theatre",
+    "WEB": "https://www.bnp.ba/"
+  },
+  {
+    "COUNTRY": "Bosnia & Herzegovina",
+    "NAME": "Tuzla Film Festival",
+    "PLACE": "Tuzla",
+    "TIME": "ETA Oct",
+    "ART/GENRE": "Cinema",
+    "WEB": "www.tff.ba"
+  },
+  {
+    "COUNTRY": "Bulgaria",
+    "NAME": "International Theatre Festival \"Varna Summer\"",
+    "PLACE": "Varna",
+    "TIME": "ETA Jun",
+    "ART/GENRE": "Dance",
+    "WEB": "https://viafest.org/en/"
+  },
+  {
+    "COUNTRY": "Bulgaria",
+    "NAME": "Plovdiv Jazz Fest",
+    "PLACE": "Plovdiv",
+    "TIME": "ETA Nov",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.plovdivjazzfest.com/"
+  },
+  {
+    "COUNTRY": "Croatia",
+    "NAME": "ZagrebDox",
+    "PLACE": "Zagreb",
+    "TIME": "19 - 26 Apr",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.zagrebdox.net/"
+  },
+  {
+    "COUNTRY": "Croatia",
+    "NAME": "Dimensions Festival",
+    "PLACE": "Pula",
+    "TIME": "27 - 31 Aug",
+    "ART/GENRE": "Music",
+    "WEB": "https://dimensionsfestival.com/"
+  },
+  {
+    "COUNTRY": "Cyprus",
+    "NAME": "International Festival of Ancient Greek Drama",
+    "PLACE": "Nicosia",
+    "TIME": "ETA Jul",
+    "ART/GENRE": "Theatre",
+    "WEB": "https://www.greekdramafest.com/"
+  },
+  {
+    "COUNTRY": "Cyprus",
+    "NAME": "Lemesos International Documentary Festival",
+    "PLACE": "Limassol",
+    "TIME": "1 - 8 Aug",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://filmfestival.com.cy/"
+  },
+  {
+    "COUNTRY": "Czech Republic",
+    "NAME": "Smetana’s Litomyšl Festival",
+    "PLACE": "Litomysl",
+    "TIME": "12 Jun - 5 Jul",
+    "ART/GENRE": "Music",
+    "WEB": "https://smetanovalitomysl.cz/"
+  },
+  {
+    "COUNTRY": "Czech Republic",
+    "NAME": "Malá inventura",
+    "PLACE": "Prague",
+    "TIME": "ETA Feb",
+    "ART/GENRE": "Theatre",
+    "WEB": "https://malainventura.cz/"
+  },
+  {
+    "COUNTRY": "Denmark",
+    "NAME": "Vendsyssel Festival",
+    "PLACE": "Vendsyssel",
+    "TIME": "28 Jun - 16 Aug",
+    "ART/GENRE": "Music",
+    "WEB": "www.vendsysselfestival.dk"
+  },
+  {
+    "COUNTRY": "Denmark",
+    "NAME": "Copenhagen Photo Festiva",
+    "PLACE": "Copenhagen",
+    "TIME": "11 - 21 Jun",
+    "ART/GENRE": "Visual Arts",
+    "WEB": "https://copenhagenphotofestival.com/"
+  },
+  {
+    "COUNTRY": "Estonia",
+    "NAME": "Prima Vista",
+    "PLACE": "Tartu",
+    "TIME": "11 - 16 Amy",
+    "ART/GENRE": "Literature",
+    "WEB": "https://kirjandusfestival.tartu.ee/"
+  },
+  {
+    "COUNTRY": "Estonia",
+    "NAME": "Parnu International Documentary and Anthropology Film Festival",
+    "PLACE": "Parnu",
+    "TIME": "5 - 18 Oct",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.chaplin.ee/"
+  },
+  {
+    "COUNTRY": "Finland",
+    "NAME": "Kaustinen Folk Music Festival",
+    "PLACE": "Kaustinen",
+    "TIME": "13 - 19 Jul",
+    "ART/GENRE": "Dance, Music",
+    "WEB": "https://kaustinen.net/"
+  },
+  {
+    "COUNTRY": "Finland",
+    "NAME": "Moving in November",
+    "PLACE": "Helsinki",
+    "TIME": "ETA Nov",
+    "ART/GENRE": "Dance",
+    "WEB": "https://movinginnovember.fi/"
+  },
+  {
+    "COUNTRY": "France",
+    "NAME": "Eurocks",
+    "PLACE": "Cravanche",
+    "TIME": "2 - 5 Jul",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.eurockeennes.fr/"
+  },
+  {
+    "COUNTRY": "France",
+    "NAME": "Avignon Festival",
+    "PLACE": "Avignon",
+    "TIME": "1 - 25 Jul",
+    "ART/GENRE": "Theatre",
+    "WEB": "https://festival-avignon.com/"
+  },
+  {
+    "COUNTRY": "Georgia",
+    "NAME": "International Festival of Animation Films \"Nikozi\"",
+    "PLACE": "Nikozi ",
+    "TIME": "ETA Sep",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.nikozifestival.ge/"
+  },
+  {
+    "COUNTRY": "Georgia",
+    "NAME": "KOLGA Tbilisi Photo",
+    "PLACE": "Tbilisi",
+    "TIME": "ETA May",
+    "ART/GENRE": "Visual Arts",
+    "WEB": "https://kolga.ge/"
+  },
+  {
+    "COUNTRY": "Germany",
+    "NAME": "FIDENA ",
+    "PLACE": "Bochum",
+    "TIME": "13 - 26 May",
+    "ART/GENRE": "Theatre",
+    "WEB": "https://www.fidena.de/"
+  },
+  {
+    "COUNTRY": "Germany",
+    "NAME": "Berlinale",
+    "PLACE": "Berlin",
+    "TIME": "12 - 22  Feb",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.berlinale.de/"
+  },
+  {
+    "COUNTRY": "Greece",
+    "NAME": "Animasyros International Animation Festival + Agora",
+    "PLACE": "Hermoupolis",
+    "TIME": "ETA Sep",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.animasyros.gr/"
+  },
+  {
+    "COUNTRY": "Greece",
+    "NAME": "Athens Digital Arts Festival ",
+    "PLACE": "Athens",
+    "TIME": "ETA Sep",
+    "ART/GENRE": "Visual Arts",
+    "WEB": "https://www.adaf.gr/"
+  },
+  {
+    "COUNTRY": "Hungary",
+    "NAME": "Ördögkatlan Festival",
+    "PLACE": "Villany",
+    "TIME": "4 -8 Aug",
+    "ART/GENRE": "Multidisciplinary",
+    "WEB": "www.ordogkatlan.hu"
+  },
+  {
+    "COUNTRY": "Hungary",
+    "NAME": "B my Lake Festival",
+    "PLACE": "Keszthely",
+    "TIME": "16 - 18 Jul",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.bmylake.hu/"
+  },
+  {
+    "COUNTRY": "Iceland",
+    "NAME": "Reykjavík International Film Festival",
+    "PLACE": "Reykjavik",
+    "TIME": "24 Sep - 4 Oct",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://riff.is/"
+  },
+  {
+    "COUNTRY": "Iceland",
+    "NAME": " Iceland Airwaves Music Festival",
+    "PLACE": "Reykjavik",
+    "TIME": "4 - 7 Nov",
+    "ART/GENRE": "Music",
+    "WEB": "https://icelandairwaves.is/"
+  },
+  {
+    "COUNTRY": "Ireland",
+    "NAME": "Fastnet Film Festival",
+    "PLACE": "Schull",
+    "TIME": "20 - 24 May",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.fastnetfilmfestival.com/"
+  },
+  {
+    "COUNTRY": "Ireland",
+    "NAME": "Sligo Jazz Project",
+    "PLACE": "Sligo",
+    "TIME": "21 - 26 Jul",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.sligojazz.ie/"
+  },
+  {
+    "COUNTRY": "Italy",
+    "NAME": "Trame Festival",
+    "PLACE": "Lamezia Terme",
+    "TIME": "ETA June",
+    "ART/GENRE": "Literature",
+    "WEB": "https://www.tramefestival.it/"
+  },
+  {
+    "COUNTRY": "Italy",
+    "NAME": "Oriente Occidente",
+    "PLACE": "Rovereto",
+    "TIME": "ETA Sep",
+    "ART/GENRE": "Dance",
+    "WEB": "https://www.orienteoccidente.it/"
+  },
+  {
+    "COUNTRY": "Latvia",
+    "NAME": "2ANNAS",
+    "PLACE": "Riga",
+    "TIME": "11 - 16 Apr",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://2annas.lv/"
+  },
+  {
+    "COUNTRY": "Latvia",
+    "NAME": "Valmiermuiža Ethnomusic Festival",
+    "PLACE": "Valmiera",
+    "TIME": 45856,
+    "ART/GENRE": "Multidisciplinary",
+    "WEB": "https://www.etnovalmiermuiza.lv/"
+  },
+  {
+    "COUNTRY": "Liechtenstein",
+    "NAME": "Vaduz Classic",
+    "PLACE": "Vaduz",
+    "TIME": "27 - 29 Aug",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.vaduzclassic.li/default.aspx"
+  },
+  {
+    "COUNTRY": "Liechtenstein",
+    "NAME": " FL1.LIFE ",
+    "PLACE": "Schaan  ",
+    "TIME": "3- 4 Jul",
+    "ART/GENRE": "Music",
+    "WEB": "https://fl1.life/"
+  },
+  {
+    "COUNTRY": "Lithuania",
+    "NAME": "Kaunas Jazz",
+    "PLACE": "Kaunas",
+    "TIME": "24 - 27 Apr",
+    "ART/GENRE": "Music",
+    "WEB": "https://kaunasjazz.lt/"
+  },
+  {
+    "COUNTRY": "Lithuania",
+    "NAME": "Blues Nights in Varniai",
+    "PLACE": "Varniai",
+    "TIME": "ETA July",
+    "ART/GENRE": "Music",
+    "WEB": "https://bliuzonaktys.lt/"
+  },
+  {
+    "COUNTRY": "Luxembourg",
+    "NAME": "Luxembourg City Film Festival",
+    "PLACE": "Luxembourg",
+    "TIME": "ETA March",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.luxfilmfest.lu/"
+  },
+  {
+    "COUNTRY": "Luxembourg",
+    "NAME": "Spring of Poets",
+    "PLACE": "Luxembourg",
+    "TIME": "ETA April",
+    "ART/GENRE": "Literature",
+    "WEB": "http://printemps-poetes.lu/"
+  },
+  {
+    "COUNTRY": "Macedonia",
+    "NAME": "May Opera Evenings",
+    "PLACE": "Skopje",
+    "TIME": "ETA May",
+    "ART/GENRE": "Music",
+    "WEB": "https://operabalet.mk/"
+  },
+  {
+    "COUNTRY": "Macedonia",
+    "NAME": "MakeDox",
+    "PLACE": "Skopje",
+    "TIME": "ETA Aug",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://makedox.mk/"
+  },
+  {
+    "COUNTRY": "Malta",
+    "NAME": "ZiguZajg",
+    "PLACE": "Valletta",
+    "TIME": "ETA November",
+    "ART/GENRE": "Multidisciplinary",
+    "WEB": "www.ziguzajg.org"
+  },
+  {
+    "COUNTRY": "Malta",
+    "NAME": "Valletta International Baroque Festival",
+    "PLACE": "Valletta",
+    "TIME": "8 - 25 Jan",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.festivals.mt/"
+  },
+  {
+    "COUNTRY": "Moldova",
+    "NAME": "Gustar Fest",
+    "PLACE": "R Trebujeni",
+    "TIME": "18 - 20 Aug",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.gustar.md/"
+  },
+  {
+    "COUNTRY": "Moldova",
+    "NAME": "CRONOGRAF Festival",
+    "PLACE": "Chisinau",
+    "TIME": "ETA Sep",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.cronograf.md/"
+  },
+  {
+    "COUNTRY": "Monaco",
+    "NAME": "Angel Film Awards - Monaco International Film Festival",
+    "PLACE": "Monaco",
+    "TIME": "ETA Nov",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.monacofilmfest.com/"
+  },
+  {
+    "COUNTRY": "Monaco",
+    "NAME": "Spring Arts Festival",
+    "PLACE": "Monaco",
+    "TIME": "11 Mar - 16 Apr",
+    "ART/GENRE": "Multidisciplinary",
+    "WEB": "https://www.printempsdesarts.mc/"
+  },
+  {
+    "COUNTRY": "Montenegro",
+    "NAME": "Merlinka International Queer Film Festival",
+    "PLACE": "Podgorica",
+    "TIME": "ETA Dec",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://merlinka.com/"
+  },
+  {
+    "COUNTRY": "Montenegro",
+    "NAME": "Festival of International Alternative Theatre",
+    "PLACE": "Podgorica",
+    "TIME": "ETA Sep",
+    "ART/GENRE": "Theatre",
+    "WEB": "www.fiat-montenegro.org"
+  },
+  {
+    "COUNTRY": "Netherlands",
+    "NAME": "Dutch Dance Festival",
+    "PLACE": "Maastricht",
+    "TIME": "ETA Oct",
+    "ART/GENRE": "Dance",
+    "WEB": "https://www.nederlandsedansdagen.nl/"
+  },
+  {
+    "COUNTRY": "Netherlands",
+    "NAME": "57. Notorious IBE",
+    "PLACE": "Heerlen",
+    "TIME": "7 - 9 Aug",
+    "ART/GENRE": "Dance/ Music",
+    "WEB": "https://www.thenotoriousibe.com/"
+  },
+  {
+    "COUNTRY": "Norway",
+    "NAME": "Stopover the World",
+    "PLACE": "Hamar",
+    "TIME": "6 - 7 Jun",
+    "ART/GENRE": "Multidisciplinary",
+    "WEB": "https://www.stoppestedverden.no/"
+  },
+  {
+    "COUNTRY": "Norway",
+    "NAME": "Notodden Blues Festival",
+    "PLACE": "Notodden",
+    "TIME": "30 Jul - 2 Aug",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.bluesfest.no/"
+  },
+  {
+    "COUNTRY": "Poland",
+    "NAME": " International Street and Open-Air Theatres Festival — FETA",
+    "PLACE": "Gdansk",
+    "TIME": "9 - 12 Jul",
+    "ART/GENRE": "Theatre",
+    "WEB": "https://feta.pl/"
+  },
+  {
+    "COUNTRY": "Poland",
+    "NAME": " KORCZAK  International Festival of Theaters for Children and Youth ",
+    "PLACE": "Warsaw",
+    "TIME": "16 - 24 Oct",
+    "ART/GENRE": "Theatre",
+    "WEB": "www.korczak-festival.pl"
+  },
+  {
+    "COUNTRY": "Portugal",
+    "NAME": "International Festival of Music Mare de Agosto",
+    "PLACE": "Vila do Porto",
+    "TIME": "ETA Aug",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.maredeagosto.com/"
+  },
+  {
+    "COUNTRY": "Portugal",
+    "NAME": "MOTELX ",
+    "PLACE": "Lisbon",
+    "TIME": "ETA Sep",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.motelx.org/"
+  },
+  {
+    "COUNTRY": "Romania",
+    "NAME": "Balkanik Festival",
+    "PLACE": "C Bucharest",
+    "TIME": "ETA Sep",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.balkanikfestival.ro/"
+  },
+  {
+    "COUNTRY": "Romania",
+    "NAME": "Vampire Film and Arts Festival Supported",
+    "PLACE": "Sighisoara",
+    "TIME": "ETA Oct",
+    "ART/GENRE": "Multidisciplinary",
+    "WEB": "https://ivfaf.com/"
+  },
+  {
+    "COUNTRY": "San Marino",
+    "NAME": "SAN MARINO COMICS",
+    "PLACE": "Borgo Maggiore",
+    "TIME": "ETA Aug",
+    "ART/GENRE": "Literature",
+    "WEB": "www.sanmarinocomics.com"
+  },
+  {
+    "COUNTRY": "San Marino",
+    "NAME": "San Marino International Arts Festival",
+    "PLACE": "Falciano",
+    "TIME": "ETA Aug",
+    "ART/GENRE": "Multidisciplinary",
+    "WEB": "https://www.agriturismolebosche.com/"
+  },
+  {
+    "COUNTRY": "Serbia",
+    "NAME": "Novi Sad Music Festivities – NOMUS",
+    "PLACE": "Novi Sad",
+    "TIME": "EAT Dec",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.muzickaomladina.org/"
+  },
+  {
+    "COUNTRY": "Serbia",
+    "NAME": "Beldocs Festival",
+    "PLACE": "Belgrade",
+    "TIME": "ETA May",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.beldocs.rs/"
+  },
+  {
+    "COUNTRY": "Slovakia",
+    "NAME": "Biennial of Animation Bratislava",
+    "PLACE": "Bratislava",
+    "TIME": "9 - 13 Oct",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.bibiana.sk/"
+  },
+  {
+    "COUNTRY": "Slovakia",
+    "NAME": "Fine Music Festival",
+    "PLACE": "Banska Stiavnica",
+    "TIME": "ETA Jul",
+    "ART/GENRE": "Music",
+    "WEB": "https://fph.sk/sk/"
+  },
+  {
+    "COUNTRY": "Slovenia",
+    "NAME": "FeKK Ljubljana Short Film Festival",
+    "PLACE": "Ljubljana",
+    "TIME": "ETA Dec",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://fekk.si/"
+  },
+  {
+    "COUNTRY": "Slovenia",
+    "NAME": " Vilenica International Literary Festival",
+    "PLACE": "Vilenica Cave",
+    "TIME": "ETA Oct",
+    "ART/GENRE": "Literature",
+    "WEB": "https://vilenica.si/"
+  },
+  {
+    "COUNTRY": "Spain",
+    "NAME": "LEM International Experimental Music Festival",
+    "PLACE": "Barcelona",
+    "TIME": "ETA Oct",
+    "ART/GENRE": "Music",
+    "WEB": "https://www.gracia-territori.com/"
+  },
+  {
+    "COUNTRY": "Spain",
+    "NAME": "Trayectos",
+    "PLACE": "Zaragoza",
+    "TIME": "ETA Jun",
+    "ART/GENRE": "Dance",
+    "WEB": "https://www.danzatrayectos.com/"
+  },
+  {
+    "COUNTRY": "Sweden",
+    "NAME": "Landskrona Photo Festival",
+    "PLACE": "Landskrona",
+    "TIME": "4 - 20 Sep",
+    "ART/GENRE": "Visual Arts",
+    "WEB": "https://www.landskronafoto.org/"
+  },
+  {
+    "COUNTRY": "Sweden",
+    "NAME": "Tempo Documentary Festival",
+    "PLACE": "Stockholm",
+    "TIME": "2 - 8 Mar",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://tempofestival.se/"
+  },
+  {
+    "COUNTRY": "Switzerland",
+    "NAME": "Pink Apple",
+    "PLACE": "Zurich",
+    "TIME": "28 Apr - 47May",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://pinkapple.ch/"
+  },
+  {
+    "COUNTRY": "Switzerland",
+    "NAME": "Verbier Festival ",
+    "PLACE": "Verbier",
+    "TIME": "16 Jul - 2 Aug",
+    "ART/GENRE": "Music",
+    "WEB": "https://verbierfestival.com/"
+  },
+  {
+    "COUNTRY": "Ukraine",
+    "NAME": "Kiev International Short Film Festival",
+    "PLACE": "Kiev",
+    "TIME": "17 - 23 Sep",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.kisff.org/"
+  },
+  {
+    "COUNTRY": "Ukraine",
+    "NAME": "Litfest",
+    "PLACE": "Lviv",
+    "TIME": "ETA Oct",
+    "ART/GENRE": "Literature",
+    "WEB": "https://bookforum.ua/"
+  },
+  {
+    "COUNTRY": "United Kingdom",
+    "NAME": "British Horror Film Festival ",
+    "PLACE": "C London",
+    "TIME": "ETA Oct",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://www.filmfestivalguild.com/"
+  },
+  {
+    "COUNTRY": "United Kingdom",
+    "NAME": "Edinburgh International Festival",
+    "PLACE": "Edinburgh",
+    "TIME": "7 - 30 Aug",
+    "ART/GENRE": "Multidisciplinary",
+    "WEB": "https://www.eif.co.uk/"
+  },
+  {
+    "COUNTRY": "Vatican",
+    "NAME": "Festival of Sacred Music",
+    "PLACE": " Vatican",
+    "TIME": "ETA Nov",
+    "ART/GENRE": "Music",
+    "WEB": "https://fondazionepromusicaeartesacra.org/"
+  },
+  {
+    "COUNTRY": "Nomad",
+    "NAME": "Manifesta",
+    "PLACE": "Ruhr Area",
+    "TIME": "21 Jun - 4 Oct",
+    "ART/GENRE": "Visual Arts",
+    "WEB": "https://www.manifesta.org/"
+  },
+  {
+    "COUNTRY": "Nomad",
+    "NAME": "ISCM World Music Days Festival",
+    "PLACE": "Bucharest",
+    "TIME": "23 - 31 May",
+    "ART/GENRE": "Music",
+    "WEB": "www.iscm.org"
+  },
+  {
+    "COUNTRY": "Worldwide",
+    "NAME": "ArteKino Festival",
+    "PLACE": "Online",
+    "TIME": "ETA Dec",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://artekinofestival.arte.tv/"
+  },
+  {
+    "COUNTRY": "Worldwide",
+    "NAME": "My French Film Cinema",
+    "PLACE": "Online",
+    "TIME": "Feb - May",
+    "ART/GENRE": "Cinema",
+    "WEB": "https://en.unifrance.org/"
+  },
+  {
+    "COUNTRY": ""
+  },
+  {
+    "COUNTRY": ""
+  },
+  {
+    "COUNTRY": ""
+  }
+]
