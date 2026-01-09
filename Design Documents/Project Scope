@@ -1,0 +1,73 @@
+Inclusions 
+
+The artofest.com project will include the following key components and features: 
+
+Website Development 
+
+Creation of a fully functional and responsive website that allows users to view information about festivals across Europe. 
+
+Development of a user-friendly interface with intuitive navigation for browsing, searching, and filtering festivals. 
+
+Individual festival profile pages containing: 
+
+Festival name 
+
+Location 
+
+Art form and genre 
+
+Start and end dates 
+
+Average cost 
+
+Festival gallery (Video and images) 
+
+Travel, Accommodation, and ticket booking links 
+
+General event details (Summary and program snippets) 
+
+Planner Tool: 
+
+A personalised planner feature will allow users to build and manage their own festival schedules. Users can select specific events or performances they want to attend and view them in a calendar format. 
+
+Search Filters: 
+
+The platform will include advanced filters so users can easily find festivals based on criteria such as art form, genre, location, and date. These filters will improve navigation and help users discover events that match their specific interests. 
+
+Wish List: 
+
+Users will be able to save festivals, performances, or artists to a personal wish list for future reference. The wish list will act as a quick-access area where users can review and manage festivals they are interested in attending. This wish list will be able to be shared to social media for a user’s friends to see. 
+
+Mobile Application 
+
+Development of a mobile app for both iOS and Android platforms. 
+
+The mobile app will be compiled from the same codebase as the website to ensure consistency and efficient development. 
+
+The app will include the same core functionalities as the website. 
+
+API Integration (Future Phase) 
+
+Research and integration of travel and accommodation APIs to enable users to view and book travel and hotels specific to each festival. 
+
+Domain and Hosting 
+
+Utilisation of the already purchased domain artofest.com. 
+
+Setup of web hosting and deployment for public access. 
+
+ 
+
+Exclusions 
+
+The following items are outside the scope of this project: 
+
+Development of separate native applications for iOS and Android (only cross-platform development from a shared codebase will be implemented). 
+
+Management of external festival booking systems — the site will only provide links or API connections to official festival booking pages. 
+
+Direct management or sale of travel or accommodation services (only integration via third-party APIs). 
+
+Creation of a user login or account management system in the initial release. 
+
+Marketing, advertising, or promotional campaigns for the platform after deployment. 
