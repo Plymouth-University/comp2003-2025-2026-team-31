@@ -1,0 +1,216 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ArtOfest API",
+    "version": "1.0.0",
+    "description": "API for exploring festivals and managing user wishlists."
+  },
+  "servers": [
+    {
+      "url": "https://artofest-api.onrender.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "Festival": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string" },
+          "city": { "type": "string" },
+          "country": { "type": "string" },
+          "image_url": { "type": "string" },
+          "website": { "type": "string" }
+        }
+      },
+      "RegisterRequest": {
+        "type": "object",
+        "required": ["username", "email", "password"],
+        "properties": {
+          "username": { "type": "string" },
+          "email": { "type": "string" },
+          "password": { "type": "string" }
+        }
+      },
+      "LoginRequest": {
+        "type": "object",
+        "required": ["email", "password"],
+        "properties": {
+          "email": { "type": "string" },
+          "password": { "type": "string" }
+        }
+      },
+      "WishlistItem": {
+        "type": "object",
+        "properties": {
+          "profile_id": { "type": "integer" },
+          "festival_id": { "type": "integer" },
+          "festival_name": { "type": "string" },
+          "country": { "type": "string" },
+          "image_url": { "type": "string" },
+          "website": { "type": "string" }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/api/festivals": {
+      "get": {
+        "summary": "Get all festivals",
+        "responses": {
+          "200": {
+            "description": "List of festivals",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Festival" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/festivals/{id}": {
+      "get": {
+        "summary": "Get festival by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Festival details",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Festival" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "summary": "Register a new user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/RegisterRequest" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User created"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "summary": "Login user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/LoginRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login successful with JWT token"
+          },
+          "401": {
+            "description": "Invalid credentials"
+          }
+        }
+      }
+    },
+    "/api/wishlist": {
+      "get": {
+        "summary": "Get user's wishlist",
+        "security": [
+          { "bearerAuth": [] }
+        ],
+        "responses": {
+          "200": {
+            "description": "Wishlist items",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/WishlistItem" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add festival to wishlist",
+        "security": [
+          { "bearerAuth": [] }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["profile_id", "festival_id"],
+                "properties": {
+                  "profile_id": { "type": "integer" },
+                  "festival_id": { "type": "integer" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Festival added to wishlist"
+          }
+        }
+      }
+    },
+    "/api/wishlist/{festivalId}": {
+      "delete": {
+        "summary": "Remove festival from wishlist",
+        "security": [
+          { "bearerAuth": [] }
+        ],
+        "parameters": [
+          {
+            "name": "festivalId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Festival removed"
+          }
+        }
+      }
+    }
+  }
+}
