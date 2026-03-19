@@ -74,4 +74,4 @@ const getFestivalById = async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 };
-module.exports = { getFestivals,getFestivalById };
+module.exports = { getFestivals,getFestivalById};
