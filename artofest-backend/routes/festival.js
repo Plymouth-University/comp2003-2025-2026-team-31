@@ -4,5 +4,6 @@ const { getFestivals } = require('../controllers/festivalControllers');
 console.log('getFestivals is:', getFestivals);
 
 router.get('/', getFestivals);
+router.get("/:id", getFestivalById);
 
 module.exports = router;

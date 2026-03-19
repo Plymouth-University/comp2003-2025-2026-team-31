@@ -51,5 +51,27 @@ const getFestivals = async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 };
+const getFestivalById = async (req, res) => {
+  const { id } = req.params;
 
+  try {
+    const result = await pool.query(
+      `SELECT f.*, af.name AS art_form
+       FROM festivals f
+       LEFT JOIN art_forms af ON f.art_form_id = af.id
+       WHERE f.id = $1`,
+      [id]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: "Festival not found" });
+    }
+
+    res.json(result.rows[0]);
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
 module.exports = { getFestivals };
