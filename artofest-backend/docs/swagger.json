@@ -175,9 +175,8 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["profile_id", "festival_id"],
+                "required": ["festival_id"],
                 "properties": {
-                  "profile_id": { "type": "integer" },
                   "festival_id": { "type": "integer" }
                 }
               }
