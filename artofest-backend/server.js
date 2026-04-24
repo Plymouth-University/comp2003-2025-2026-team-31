@@ -6,6 +6,7 @@ const swaggerDocument = require("./docs/swagger.json");
 const festivalRoutes = require("./routes/festival");
 const authRoutes = require("./routes/auth");
 const wishlistRoutes = require("./routes/wishlist");
+const streamRoutes = require('./routes/stream')
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/api/festivals", festivalRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/wishlist", wishlistRoutes);
+app.use('/api/streams', streamRoutes)
 
 // Health check route (useful for Render monitoring)
 app.get("/", (req, res) => {
