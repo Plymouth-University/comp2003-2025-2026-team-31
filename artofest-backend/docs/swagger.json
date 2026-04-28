@@ -3,12 +3,18 @@
   "info": {
     "title": "ArtOfest API",
     "version": "1.0.0",
-    "description": "API for exploring festivals and managing user wishlists."
+    "description": "API for exploring festivals, managing user wishlists, and streaming festival content."
   },
   "servers": [
     {
       "url": "https://artofest-api-yc0q.onrender.com"
     }
+  ],
+  "tags": [
+    { "name": "Festivals" },
+    { "name": "Auth" },
+    { "name": "Wishlist" },
+    { "name": "Streams" }
   ],
   "components": {
     "securitySchemes": {
@@ -57,6 +63,40 @@
           "image_url": { "type": "string" },
           "website": { "type": "string" }
         }
+      },
+      "Stream": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "title": { "type": "string" },
+          "url": { "type": "string" },
+          "platform": { "type": "string" }
+        }
+      },
+      "CategoryGroup": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "streams": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Stream"
+            }
+          }
+        }
+      },
+      "StreamGroup": {
+        "type": "object",
+        "properties": {
+          "festival_id": { "type": "integer" },
+          "festival_name": { "type": "string" },
+          "categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CategoryGroup"
+            }
+          }
+        }
       }
     }
   },
@@ -64,6 +104,7 @@
     "/api/festivals": {
       "get": {
         "summary": "Get all festivals",
+        "tags": ["Festivals"],
         "responses": {
           "200": {
             "description": "List of festivals",
@@ -82,6 +123,7 @@
     "/api/festivals/{id}": {
       "get": {
         "summary": "Get festival by ID",
+        "tags": ["Festivals"],
         "parameters": [
           {
             "name": "id",
@@ -105,6 +147,7 @@
     "/api/auth/register": {
       "post": {
         "summary": "Register a new user",
+        "tags": ["Auth"],
         "requestBody": {
           "required": true,
           "content": {
@@ -114,18 +157,15 @@
           }
         },
         "responses": {
-          "201": {
-            "description": "User created"
-          },
-          "400": {
-            "description": "Validation error"
-          }
+          "201": { "description": "User created" },
+          "400": { "description": "Validation error" }
         }
       }
     },
     "/api/auth/login": {
       "post": {
         "summary": "Login user",
+        "tags": ["Auth"],
         "requestBody": {
           "required": true,
           "content": {
@@ -135,21 +175,16 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "Login successful with JWT token"
-          },
-          "401": {
-            "description": "Invalid credentials"
-          }
+          "200": { "description": "Login successful with JWT token" },
+          "401": { "description": "Invalid credentials" }
         }
       }
     },
     "/api/wishlist": {
       "get": {
         "summary": "Get user's wishlist",
-        "security": [
-          { "bearerAuth": [] }
-        ],
+        "tags": ["Wishlist"],
+        "security": [{ "bearerAuth": [] }],
         "responses": {
           "200": {
             "description": "Wishlist items",
@@ -166,9 +201,8 @@
       },
       "post": {
         "summary": "Add festival to wishlist",
-        "security": [
-          { "bearerAuth": [] }
-        ],
+        "tags": ["Wishlist"],
+        "security": [{ "bearerAuth": [] }],
         "requestBody": {
           "required": true,
           "content": {
@@ -193,9 +227,8 @@
     "/api/wishlist/{festivalId}": {
       "delete": {
         "summary": "Remove festival from wishlist",
-        "security": [
-          { "bearerAuth": [] }
-        ],
+        "tags": ["Wishlist"],
+        "security": [{ "bearerAuth": [] }],
         "parameters": [
           {
             "name": "festivalId",
@@ -207,6 +240,92 @@
         "responses": {
           "200": {
             "description": "Festival removed"
+          }
+        }
+      }
+    },
+    "/api/streams": {
+      "get": {
+        "summary": "Get all streams grouped by festival and category",
+        "tags": ["Streams"],
+        "responses": {
+          "200": {
+            "description": "List of streams grouped by festival",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StreamGroup"
+                  }
+                },
+                "example": [
+                  {
+                    "festival_id": 4,
+                    "festival_name": "Avignon Festival",
+                    "categories": [
+                      {
+                        "name": "Performance",
+                        "streams": [
+                          {
+                            "id": 1,
+                            "title": "Logbook Performance",
+                            "url": "https://youtu.be/rSlMF9IzZww",
+                            "platform": "youtube"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/streams/{festivalId}": {
+      "get": {
+        "summary": "Get streams by festival ID",
+        "tags": ["Streams"],
+        "parameters": [
+          {
+            "name": "festivalId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Streams for a specific festival",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamGroup"
+                },
+                "example": {
+                  "festival_id": 4,
+                  "festival_name": "Avignon Festival",
+                  "categories": [
+                    {
+                      "name": "Performance",
+                      "streams": [
+                        {
+                          "id": 1,
+                          "title": "Logbook Performance",
+                          "url": "https://youtu.be/rSlMF9IzZww",
+                          "platform": "youtube"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No streams found"
           }
         }
       }
