@@ -33,9 +33,18 @@
           "city": { "type": "string" },
           "country": { "type": "string" },
           "image_url": { "type": "string" },
-          "website": { "type": "string" }
+          "website": { "type": "string" },
+
+          "festival_images": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "https://artofest-api.onrender.com/images/Avignon-Festival.jpg"
+            }
+          }
         }
       },
+
       "RegisterRequest": {
         "type": "object",
         "required": ["username", "email", "password"],
@@ -45,6 +54,7 @@
           "password": { "type": "string" }
         }
       },
+
       "LoginRequest": {
         "type": "object",
         "required": ["email", "password"],
@@ -53,6 +63,7 @@
           "password": { "type": "string" }
         }
       },
+
       "WishlistItem": {
         "type": "object",
         "properties": {
@@ -64,6 +75,7 @@
           "website": { "type": "string" }
         }
       },
+
       "Stream": {
         "type": "object",
         "properties": {
@@ -73,6 +85,7 @@
           "platform": { "type": "string" }
         }
       },
+
       "CategoryGroup": {
         "type": "object",
         "properties": {
@@ -85,6 +98,7 @@
           }
         }
       },
+
       "StreamGroup": {
         "type": "object",
         "properties": {
@@ -100,6 +114,7 @@
       }
     }
   },
+
   "paths": {
     "/api/festivals": {
       "get": {
@@ -120,6 +135,7 @@
         }
       }
     },
+
     "/api/festivals/{id}": {
       "get": {
         "summary": "Get festival by ID",
@@ -137,13 +153,27 @@
             "description": "Festival details",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Festival" }
+                "schema": { "$ref": "#/components/schemas/Festival" },
+                "example": {
+                  "id": 4,
+                  "name": "Avignon Festival",
+                  "city": "Avignon",
+                  "country": "France",
+                  "image_url": "https://artofest-api.onrender.com/images/Avignon-Festival.jpg",
+                  "website": "https://festival-avignon.com/",
+                  "festival_images": [
+                    "https://artofest-api.onrender.com/images/Avignon-Festival.jpg",
+                    "https://artofest-api.onrender.com/images/Avignon-Festival-2.jpg",
+                    "https://artofest-api.onrender.com/images/Avignon-Festival-3.jpg"
+                  ]
+                }
               }
             }
           }
         }
       }
     },
+
     "/api/auth/register": {
       "post": {
         "summary": "Register a new user",
@@ -162,6 +192,7 @@
         }
       }
     },
+
     "/api/auth/login": {
       "post": {
         "summary": "Login user",
@@ -180,6 +211,7 @@
         }
       }
     },
+
     "/api/wishlist": {
       "get": {
         "summary": "Get user's wishlist",
@@ -224,6 +256,7 @@
         }
       }
     },
+
     "/api/wishlist/{festivalId}": {
       "delete": {
         "summary": "Remove festival from wishlist",
@@ -244,6 +277,7 @@
         }
       }
     },
+
     "/api/streams": {
       "get": {
         "summary": "Get all streams grouped by festival and category",
@@ -258,32 +292,14 @@
                   "items": {
                     "$ref": "#/components/schemas/StreamGroup"
                   }
-                },
-                "example": [
-                  {
-                    "festival_id": 4,
-                    "festival_name": "Avignon Festival",
-                    "categories": [
-                      {
-                        "name": "Performance",
-                        "streams": [
-                          {
-                            "id": 1,
-                            "title": "Logbook Performance",
-                            "url": "https://youtu.be/rSlMF9IzZww",
-                            "platform": "youtube"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
+                }
               }
             }
           }
         }
       }
     },
+
     "/api/streams/{festivalId}": {
       "get": {
         "summary": "Get streams by festival ID",
@@ -303,23 +319,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/StreamGroup"
-                },
-                "example": {
-                  "festival_id": 4,
-                  "festival_name": "Avignon Festival",
-                  "categories": [
-                    {
-                      "name": "Performance",
-                      "streams": [
-                        {
-                          "id": 1,
-                          "title": "Logbook Performance",
-                          "url": "https://youtu.be/rSlMF9IzZww",
-                          "platform": "youtube"
-                        }
-                      ]
-                    }
-                  ]
                 }
               }
             }
