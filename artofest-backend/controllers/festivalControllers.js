@@ -10,9 +10,9 @@ const getFestivals = async (req, res) => {
         f.*,
         af.name AS art_form,
         COALESCE(
-          json_agg(fi.image_url) FILTER (WHERE fi.image_url IS NOT NULL),
+          json_agg(DISTINCT fi.image_url) FILTER (WHERE fi.image_url IS NOT NULL),
           '[]'
-        ) AS images
+        ) AS festival_images
       FROM festivals f
       LEFT JOIN art_forms af ON f.art_form_id = af.id
       LEFT JOIN festival_genres fg ON f.id = fg.festival_id
@@ -78,9 +78,9 @@ const getFestivalById = async (req, res) => {
         f.*,
         af.name AS art_form,
         COALESCE(
-          json_agg(fi.image_url) FILTER (WHERE fi.image_url IS NOT NULL),
+          json_agg(DISTINCT fi.image_url) FILTER (WHERE fi.image_url IS NOT NULL),
           '[]'
-        ) AS images
+        ) AS festival_images
       FROM festivals f
       LEFT JOIN art_forms af ON f.art_form_id = af.id
       LEFT JOIN festival_images fi ON f.id = fi.festival_id
