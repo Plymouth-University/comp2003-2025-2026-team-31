@@ -1,0 +1,13 @@
+node_modules/
+**/node_modules/
+
+.expo/
+**/.expo/
+
+dist/
+web-build/
+
+.env
+.env.*
+
+*.log
