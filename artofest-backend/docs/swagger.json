@@ -1,0 +1,333 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ArtOfest API",
+    "version": "1.0.0",
+    "description": "API for exploring festivals, managing user wishlists, and streaming festival content."
+  },
+  "servers": [
+    {
+      "url": "https://artofest-api-yc0q.onrender.com"
+    }
+  ],
+  "tags": [
+    { "name": "Festivals" },
+    { "name": "Auth" },
+    { "name": "Wishlist" },
+    { "name": "Streams" }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "Festival": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string" },
+          "city": { "type": "string" },
+          "country": { "type": "string" },
+          "image_url": { "type": "string" },
+          "website": { "type": "string" },
+
+          "festival_images": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "https://artofest-api.onrender.com/images/Avignon-Festival.jpg"
+            }
+          }
+        }
+      },
+
+      "RegisterRequest": {
+        "type": "object",
+        "required": ["username", "email", "password"],
+        "properties": {
+          "username": { "type": "string" },
+          "email": { "type": "string" },
+          "password": { "type": "string" }
+        }
+      },
+
+      "LoginRequest": {
+        "type": "object",
+        "required": ["email", "password"],
+        "properties": {
+          "email": { "type": "string" },
+          "password": { "type": "string" }
+        }
+      },
+
+      "WishlistItem": {
+        "type": "object",
+        "properties": {
+          "profile_id": { "type": "integer" },
+          "festival_id": { "type": "integer" },
+          "festival_name": { "type": "string" },
+          "country": { "type": "string" },
+          "image_url": { "type": "string" },
+          "website": { "type": "string" }
+        }
+      },
+
+      "Stream": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "title": { "type": "string" },
+          "url": { "type": "string" },
+          "platform": { "type": "string" }
+        }
+      },
+
+      "CategoryGroup": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "streams": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Stream"
+            }
+          }
+        }
+      },
+
+      "StreamGroup": {
+        "type": "object",
+        "properties": {
+          "festival_id": { "type": "integer" },
+          "festival_name": { "type": "string" },
+          "categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CategoryGroup"
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "paths": {
+    "/api/festivals": {
+      "get": {
+        "summary": "Get all festivals",
+        "tags": ["Festivals"],
+        "responses": {
+          "200": {
+            "description": "List of festivals",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Festival" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/festivals/{id}": {
+      "get": {
+        "summary": "Get festival by ID",
+        "tags": ["Festivals"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Festival details",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Festival" },
+                "example": {
+                  "id": 4,
+                  "name": "Avignon Festival",
+                  "city": "Avignon",
+                  "country": "France",
+                  "image_url": "https://artofest-api.onrender.com/images/Avignon-Festival.jpg",
+                  "website": "https://festival-avignon.com/",
+                  "festival_images": [
+                    "https://artofest-api.onrender.com/images/Avignon-Festival.jpg",
+                    "https://artofest-api.onrender.com/images/Avignon-Festival-2.jpg",
+                    "https://artofest-api.onrender.com/images/Avignon-Festival-3.jpg"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/auth/register": {
+      "post": {
+        "summary": "Register a new user",
+        "tags": ["Auth"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/RegisterRequest" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "User created" },
+          "400": { "description": "Validation error" }
+        }
+      }
+    },
+
+    "/api/auth/login": {
+      "post": {
+        "summary": "Login user",
+        "tags": ["Auth"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/LoginRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Login successful with JWT token" },
+          "401": { "description": "Invalid credentials" }
+        }
+      }
+    },
+
+    "/api/wishlist": {
+      "get": {
+        "summary": "Get user's wishlist",
+        "tags": ["Wishlist"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": {
+            "description": "Wishlist items",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/WishlistItem" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add festival to wishlist",
+        "tags": ["Wishlist"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["festival_id"],
+                "properties": {
+                  "festival_id": { "type": "integer" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Festival added to wishlist"
+          }
+        }
+      }
+    },
+
+    "/api/wishlist/{festivalId}": {
+      "delete": {
+        "summary": "Remove festival from wishlist",
+        "tags": ["Wishlist"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "festivalId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Festival removed"
+          }
+        }
+      }
+    },
+
+    "/api/streams": {
+      "get": {
+        "summary": "Get all streams grouped by festival and category",
+        "tags": ["Streams"],
+        "responses": {
+          "200": {
+            "description": "List of streams grouped by festival",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StreamGroup"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/streams/{festivalId}": {
+      "get": {
+        "summary": "Get streams by festival ID",
+        "tags": ["Streams"],
+        "parameters": [
+          {
+            "name": "festivalId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Streams for a specific festival",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreamGroup"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No streams found"
+          }
+        }
+      }
+    }
+  }
+}
