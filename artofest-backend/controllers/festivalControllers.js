@@ -114,7 +114,7 @@ const createFestival = async (req, res) => {
     description,
     start_date,
     end_date,
-    month,
+    month_text,
     art_form,
     genres,
     images
@@ -149,7 +149,7 @@ const createFestival = async (req, res) => {
     // FULL FESTIVAL INSERT
     const festivalRes = await client.query(
       `INSERT INTO festivals 
-      (name, city, country, website, image_url, latitude, longitude, description, start_date, end_date, month, art_form_id)
+      (name, city, country, website, image_url, latitude, longitude, description, start_date, end_date, month_text, art_form_id)
       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)
       RETURNING id`,
       [
@@ -163,7 +163,7 @@ const createFestival = async (req, res) => {
         description || null,
         start_date || null,
         end_date || null,
-        month || null,
+        month_text || null,
         artFormId
       ]
     );
@@ -242,7 +242,7 @@ const updateFestival = async (req, res) => {
     description,
     start_date,
     end_date,
-    month,
+    month_text,
     art_form,
     genres,
     images
@@ -285,7 +285,7 @@ const updateFestival = async (req, res) => {
        SET name=$1, city=$2, country=$3, website=$4,
            image_url=$5, latitude=$6, longitude=$7,
            description=$8, start_date=$9, end_date=$10,
-           month=$11, art_form_id=$12
+           month_text=$11, art_form_id=$12
        WHERE id=$13`,
       [
         name,
@@ -298,7 +298,7 @@ const updateFestival = async (req, res) => {
         description,
         start_date,
         end_date,
-        month,
+        month_text,
         artFormId,
         id
       ]
