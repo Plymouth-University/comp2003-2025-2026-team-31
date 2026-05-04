@@ -41,7 +41,7 @@
     "description": { "type": "string" },
     "start_date": { "type": "string", "format": "date" },
     "end_date": { "type": "string", "format": "date" },
-    "month": { "type": "string" },
+    "month_text": { "type": "string" },
 
     "festival_images": {
       "type": "array",
@@ -133,7 +133,7 @@
     "description": { "type": "string" },
     "start_date": { "type": "string", "format": "date" },
     "end_date": { "type": "string", "format": "date" },
-    "month": { "type": "string" },
+    "month_text": { "type": "string" },
 
     "art_form": { "type": "string" },
 
