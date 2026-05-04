@@ -211,10 +211,17 @@ const createFestival = async (req, res) => {
     });
 
   } catch (error) {
-    await client.query("ROLLBACK");
-    console.error(error);
-    res.status(500).json({ message: "Failed to create festival" });
-  } finally {
+  await client.query("ROLLBACK");
+
+  console.error("FULL ERROR:", error);
+
+  res.status(500).json({
+    message: "Failed to create festival",
+    error: error.message,
+    detail: error.detail,
+    constraint: error.constraint
+  });
+} finally {
     client.release();
   }
 };
