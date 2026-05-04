@@ -57,7 +57,6 @@ const getFestivals = async (req, res) => {
     `;
 
     const result = await pool.query(query, values);
-
     res.json(result.rows);
 
   } catch (error) {
@@ -65,8 +64,6 @@ const getFestivals = async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 };
-
-
 
 const getFestivalById = async (req, res) => {
   const { id } = req.params;
@@ -103,7 +100,7 @@ const getFestivalById = async (req, res) => {
 };
 
 // ===============================
-// ✅ CREATE FESTIVAL (ADMIN)
+// ✅ CREATE FESTIVAL (FULL FIELDS)
 // ===============================
 const createFestival = async (req, res) => {
   const {
@@ -111,22 +108,20 @@ const createFestival = async (req, res) => {
     city,
     country,
     website,
+    image_url,
+    latitude,
+    longitude,
+    description,
+    start_date,
+    end_date,
+    month,
     art_form,
     genres,
     images
   } = req.body;
 
-  // 🔐 INPUT VALIDATION
   if (!name || !city || !country || !art_form) {
     return res.status(400).json({ message: "Missing required fields" });
-  }
-
-  if (genres && !Array.isArray(genres)) {
-    return res.status(400).json({ message: "Genres must be an array" });
-  }
-
-  if (images && !Array.isArray(images)) {
-    return res.status(400).json({ message: "Images must be an array" });
   }
 
   const client = await pool.connect();
@@ -134,14 +129,13 @@ const createFestival = async (req, res) => {
   try {
     await client.query("BEGIN");
 
-    // 1️⃣ ART FORM
+    // ART FORM
     let artFormRes = await client.query(
       "SELECT id FROM art_forms WHERE name = $1",
       [art_form]
     );
 
     let artFormId;
-
     if (artFormRes.rows.length === 0) {
       const insert = await client.query(
         "INSERT INTO art_forms (name) VALUES ($1) RETURNING id",
@@ -152,28 +146,36 @@ const createFestival = async (req, res) => {
       artFormId = artFormRes.rows[0].id;
     }
 
-    // 2️⃣ FESTIVAL INSERT
+    // FULL FESTIVAL INSERT
     const festivalRes = await client.query(
-      `INSERT INTO festivals (name, city, country, website, art_form_id)
-       VALUES ($1, $2, $3, $4, $5)
-       RETURNING id`,
-      [name, city, country, website || null, artFormId]
+      `INSERT INTO festivals 
+      (name, city, country, website, image_url, latitude, longitude, description, start_date, end_date, month, art_form_id)
+      VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)
+      RETURNING id`,
+      [
+        name,
+        city,
+        country,
+        website || null,
+        image_url || null,
+        latitude || null,
+        longitude || null,
+        description || null,
+        start_date || null,
+        end_date || null,
+        month || null,
+        artFormId
+      ]
     );
 
     const festivalId = festivalRes.rows[0].id;
 
-    // 3️⃣ GENRES
-    if (genres && genres.length > 0) {
+    // GENRES
+    if (genres) {
       for (const genre of genres) {
-        if (!genre) continue;
-
-        let g = await client.query(
-          "SELECT id FROM genres WHERE name = $1",
-          [genre]
-        );
+        let g = await client.query("SELECT id FROM genres WHERE name=$1", [genre]);
 
         let genreId;
-
         if (g.rows.length === 0) {
           const insert = await client.query(
             "INSERT INTO genres (name) VALUES ($1) RETURNING id",
@@ -185,19 +187,17 @@ const createFestival = async (req, res) => {
         }
 
         await client.query(
-          "INSERT INTO festival_genres (festival_id, genre_id) VALUES ($1, $2)",
+          "INSERT INTO festival_genres (festival_id, genre_id) VALUES ($1,$2)",
           [festivalId, genreId]
         );
       }
     }
 
-    // 4️⃣ IMAGES
-    if (images && images.length > 0) {
+    // IMAGES
+    if (images) {
       for (const img of images) {
-        if (!img) continue;
-
         await client.query(
-          "INSERT INTO festival_images (festival_id, image_url) VALUES ($1, $2)",
+          "INSERT INTO festival_images (festival_id, image_url) VALUES ($1,$2)",
           [festivalId, img]
         );
       }
@@ -220,7 +220,7 @@ const createFestival = async (req, res) => {
 };
 
 // ===============================
-// UPDATE FESTIVAL (ADMIN)
+// ✅ UPDATE FESTIVAL (FULL FIELDS)
 // ===============================
 const updateFestival = async (req, res) => {
   const { id } = req.params;
@@ -229,6 +229,13 @@ const updateFestival = async (req, res) => {
     city,
     country,
     website,
+    image_url,
+    latitude,
+    longitude,
+    description,
+    start_date,
+    end_date,
+    month,
     art_form,
     genres,
     images
@@ -239,7 +246,6 @@ const updateFestival = async (req, res) => {
   try {
     await client.query("BEGIN");
 
-    // check festival exists
     const existing = await client.query(
       "SELECT id FROM festivals WHERE id = $1",
       [id]
@@ -266,12 +272,29 @@ const updateFestival = async (req, res) => {
       artFormId = artFormRes.rows[0].id;
     }
 
-    // UPDATE FESTIVAL
+    // FULL UPDATE
     await client.query(
       `UPDATE festivals
-       SET name=$1, city=$2, country=$3, website=$4, art_form_id=$5
-       WHERE id=$6`,
-      [name, city, country, website, artFormId, id]
+       SET name=$1, city=$2, country=$3, website=$4,
+           image_url=$5, latitude=$6, longitude=$7,
+           description=$8, start_date=$9, end_date=$10,
+           month=$11, art_form_id=$12
+       WHERE id=$13`,
+      [
+        name,
+        city,
+        country,
+        website,
+        image_url,
+        latitude,
+        longitude,
+        description,
+        start_date,
+        end_date,
+        month,
+        artFormId,
+        id
+      ]
     );
 
     // CLEAR OLD RELATIONS
@@ -325,8 +348,6 @@ const updateFestival = async (req, res) => {
 };
 
 // ===============================
-// DELETE FESTIVAL (ADMIN)
-// ===============================
 const deleteFestival = async (req, res) => {
   const { id } = req.params;
 
@@ -347,7 +368,6 @@ const deleteFestival = async (req, res) => {
     res.status(500).json({ message: "Failed to delete festival" });
   }
 };
-
 
 module.exports = {
   getFestivals,
