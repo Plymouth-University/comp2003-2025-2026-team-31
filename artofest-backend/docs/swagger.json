@@ -27,20 +27,28 @@
 
     "schemas": {
       "Festival": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "integer" },
-          "name": { "type": "string" },
-          "city": { "type": "string" },
-          "country": { "type": "string" },
-          "image_url": { "type": "string" },
-          "website": { "type": "string" },
-          "festival_images": {
-            "type": "array",
-            "items": { "type": "string" }
-          }
-        }
-      },
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "name": { "type": "string" },
+    "city": { "type": "string" },
+    "country": { "type": "string" },
+    "image_url": { "type": "string" },
+    "website": { "type": "string" },
+
+    "latitude": { "type": "number" },
+    "longitude": { "type": "number" },
+    "description": { "type": "string" },
+    "start_date": { "type": "string", "format": "date" },
+    "end_date": { "type": "string", "format": "date" },
+    "month": { "type": "string" },
+
+    "festival_images": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+},
 
       "RegisterRequest": {
         "type": "object",
@@ -111,24 +119,34 @@
       },
 
       "CreateFestivalRequest": {
-        "type": "object",
-        "required": ["name", "city", "country", "art_form"],
-        "properties": {
-          "name": { "type": "string" },
-          "city": { "type": "string" },
-          "country": { "type": "string" },
-          "website": { "type": "string" },
-          "art_form": { "type": "string" },
-          "genres": {
-            "type": "array",
-            "items": { "type": "string" }
-          },
-          "images": {
-            "type": "array",
-            "items": { "type": "string" }
-          }
-        }
-      },
+  "type": "object",
+  "required": ["name", "city", "country", "art_form"],
+  "properties": {
+    "name": { "type": "string" },
+    "city": { "type": "string" },
+    "country": { "type": "string" },
+    "website": { "type": "string" },
+    "image_url": { "type": "string" },
+
+    "latitude": { "type": "number" },
+    "longitude": { "type": "number" },
+    "description": { "type": "string" },
+    "start_date": { "type": "string", "format": "date" },
+    "end_date": { "type": "string", "format": "date" },
+    "month": { "type": "string" },
+
+    "art_form": { "type": "string" },
+
+    "genres": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "images": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+},
 
       "UpdateFestivalRequest": {
         "allOf": [
