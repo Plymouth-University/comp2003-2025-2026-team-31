@@ -34,15 +34,37 @@
           "country": { "type": "string" },
           "image_url": { "type": "string" },
           "website": { "type": "string" },
-
           "festival_images": {
             "type": "array",
-            "items": {
-              "type": "string",
-              "example": "https://artofest-api.onrender.com/images/Avignon-Festival.jpg"
-            }
+            "items": { "type": "string" }
           }
         }
+      },
+
+      "CreateFestivalRequest": {
+        "type": "object",
+        "required": ["name", "city", "country", "art_form"],
+        "properties": {
+          "name": { "type": "string" },
+          "city": { "type": "string" },
+          "country": { "type": "string" },
+          "website": { "type": "string" },
+          "art_form": { "type": "string" },
+          "genres": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "images": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      },
+
+      "UpdateFestivalRequest": {
+        "allOf": [
+          { "$ref": "#/components/schemas/CreateFestivalRequest" }
+        ]
       },
 
       "RegisterRequest": {
@@ -111,6 +133,38 @@
             }
           }
         }
+      },
+
+      "CreateStreamsRequest": {
+        "type": "object",
+        "required": ["festival_id", "streams"],
+        "properties": {
+          "festival_id": { "type": "integer" },
+          "streams": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["title", "url", "platform", "category_id"],
+              "properties": {
+                "title": { "type": "string" },
+                "url": { "type": "string" },
+                "platform": { "type": "string" },
+                "category_id": { "type": "integer" }
+              }
+            }
+          }
+        }
+      },
+
+      "UpdateStreamRequest": {
+        "type": "object",
+        "required": ["title", "url", "platform", "category_id"],
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "type": "string" },
+          "platform": { "type": "string" },
+          "category_id": { "type": "integer" }
+        }
       }
     }
   },
@@ -153,20 +207,7 @@
             "description": "Festival details",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Festival" },
-                "example": {
-                  "id": 4,
-                  "name": "Avignon Festival",
-                  "city": "Avignon",
-                  "country": "France",
-                  "image_url": "https://artofest-api.onrender.com/images/Avignon-Festival.jpg",
-                  "website": "https://festival-avignon.com/",
-                  "festival_images": [
-                    "https://artofest-api.onrender.com/images/Avignon-Festival.jpg",
-                    "https://artofest-api.onrender.com/images/Avignon-Festival-2.jpg",
-                    "https://artofest-api.onrender.com/images/Avignon-Festival-3.jpg"
-                  ]
-                }
+                "schema": { "$ref": "#/components/schemas/Festival" }
               }
             }
           }
@@ -174,117 +215,75 @@
       }
     },
 
-    "/api/auth/register": {
+    "/api/festivals/admin": {
       "post": {
-        "summary": "Register a new user",
-        "tags": ["Auth"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/RegisterRequest" }
-            }
-          }
-        },
-        "responses": {
-          "201": { "description": "User created" },
-          "400": { "description": "Validation error" }
-        }
-      }
-    },
-
-    "/api/auth/login": {
-      "post": {
-        "summary": "Login user",
-        "tags": ["Auth"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/LoginRequest" }
-            }
-          }
-        },
-        "responses": {
-          "200": { "description": "Login successful with JWT token" },
-          "401": { "description": "Invalid credentials" }
-        }
-      }
-    },
-
-    "/api/wishlist": {
-      "get": {
-        "summary": "Get user's wishlist",
-        "tags": ["Wishlist"],
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "Wishlist items",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/WishlistItem" }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Add festival to wishlist",
-        "tags": ["Wishlist"],
+        "summary": "Create festival (Admin only)",
+        "tags": ["Festivals"],
         "security": [{ "bearerAuth": [] }],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": {
-                "type": "object",
-                "required": ["festival_id"],
-                "properties": {
-                  "festival_id": { "type": "integer" }
-                }
-              }
+              "schema": { "$ref": "#/components/schemas/CreateFestivalRequest" }
             }
           }
         },
         "responses": {
-          "200": {
-            "description": "Festival added to wishlist"
-          }
+          "201": { "description": "Festival created" }
         }
       }
     },
 
-    "/api/wishlist/{festivalId}": {
-      "delete": {
-        "summary": "Remove festival from wishlist",
-        "tags": ["Wishlist"],
+    "/api/festivals/admin/{id}": {
+      "put": {
+        "summary": "Update festival (Admin only)",
+        "tags": ["Festivals"],
         "security": [{ "bearerAuth": [] }],
         "parameters": [
           {
-            "name": "festivalId",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateFestivalRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Festival updated" }
+        }
+      },
+      "delete": {
+        "summary": "Delete festival (Admin only)",
+        "tags": ["Festivals"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": { "type": "integer" }
           }
         ],
         "responses": {
-          "200": {
-            "description": "Festival removed"
-          }
+          "200": { "description": "Festival deleted" }
         }
       }
     },
 
     "/api/streams": {
       "get": {
-        "summary": "Get all streams grouped by festival and category",
+        "summary": "Get all streams grouped by festival",
         "tags": ["Streams"],
         "responses": {
           "200": {
-            "description": "List of streams grouped by festival",
+            "description": "Stream groups",
             "content": {
               "application/json": {
                 "schema": {
@@ -314,7 +313,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Streams for a specific festival",
+            "description": "Streams",
             "content": {
               "application/json": {
                 "schema": {
@@ -322,10 +321,73 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "No streams found"
           }
+        }
+      }
+    },
+
+    "/api/streams/admin": {
+      "post": {
+        "summary": "Create streams (Admin only)",
+        "tags": ["Streams"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStreamsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Streams created" }
+        }
+      }
+    },
+
+    "/api/streams/admin/{id}": {
+      "put": {
+        "summary": "Update stream (Admin only)",
+        "tags": ["Streams"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStreamRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Stream updated" }
+        }
+      },
+      "delete": {
+        "summary": "Delete stream (Admin only)",
+        "tags": ["Streams"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Stream deleted" }
         }
       }
     }
