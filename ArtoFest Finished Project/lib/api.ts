@@ -1,1 +1,0 @@
-export const API_BASE_URL = "https://artofest-api-yc0q.onrender.com/api";
